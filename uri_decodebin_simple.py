@@ -40,13 +40,12 @@ def pad_added_cb(demux, srcpad):
 Gst.init(sys.argv)
 
 pipeline = Gst.ElementFactory.make("pipeline", "ogg")
-
 src = Gst.ElementFactory.make ("filesrc", "src")
-src.set_property ("location", sys.argv[1])
-
 demux = Gst.ElementFactory.make ("oggdemux", "demux")
 sink = Gst.ElementFactory.make ("alsasink", "sink")
-assert (pipeline and src and sink)
+assert (pipeline and src and demux and sink)
+
+src.set_property ("location", sys.argv[1])
 
 pipeline.add(src)
 pipeline.add(demux)
