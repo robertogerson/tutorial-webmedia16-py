@@ -2,20 +2,20 @@ import sys, gi
 gi.require_version ('Gst', '1.0')
 from gi.repository import Gst
 
-videofilters = {
-  "coloreffects": {"preset": 1},
-  "dicetv": None,
-  "shagadelictv": None,
-  "edgetv": None,
-  "revtv": None
-}
-
 audiofilters = {
   "volume": {"volume": 2.0},
   "pitch": {"pitch": 0.5},
   "audioecho": {"delay": Gst.SECOND, "intensity": 1.0},
   "feeverb": {"room-size": 1.0, "level": 1.0},
   "equalizer-3bands": {"band0": 12.0, "band1": -24.0}
+}
+
+videofilters = {
+  "coloreffects": {"preset": 1},
+  "dicetv": None,
+  "shagadelictv": None,
+  "edgetv": None,
+  "revtv": None
 }
 
 def pad_added_cb(demux, srcpad):
